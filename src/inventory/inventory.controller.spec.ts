@@ -27,16 +27,22 @@ describe('InventoryController', () => {
     controller = module.get<InventoryController>(InventoryController);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
 
-  it('should return inventory items from the service', () => {
-    expect(controller.getItems()).toEqual([
+  it('should return inventory items from the mocked service', () => {
+    const result = controller.getItems();
+
+    expect(result).toEqual([
       { id: 1, name: 'Potion', quantity: 5 },
       { id: 2, name: 'Sword', quantity: 1 },
     ]);
 
-    expect(mockInventoryService.getItems).toHaveBeenCalled();
+    expect(mockInventoryService.getItems).toHaveBeenCalledTimes(1);
   });
 });
