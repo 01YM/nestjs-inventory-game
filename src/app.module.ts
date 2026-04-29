@@ -8,7 +8,6 @@ import { BullModule } from '@nestjs/bullmq';
 import { PlayerModule } from './player/player.module';
 import { InventoryModule } from './inventory/inventory.module';
 import { TasksModule } from './tasks/tasks.module';
-import { MessagesModule } from './messages/messages.module';
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { Task } from './tasks/task.entity';
 
@@ -33,7 +32,7 @@ import { Task } from './tasks/task.entity';
     PlayerModule,
     InventoryModule,
     TasksModule,
-    MessagesModule,
+    
   ],
 })
 export class AppModule implements NestModule {
